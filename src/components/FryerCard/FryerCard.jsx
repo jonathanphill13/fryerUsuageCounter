@@ -17,10 +17,13 @@ const FryerCard = ({ number }) => {
       <p>
         Used for {count} day{count !== 1 ? "s" : ""}
       </p>
-      <img src={assets.add_icon_green} alt="" onClick={increaseFryerUseDays} />
-      <button
-      className="button"
-      onClick={resetFryerUseDays}>Reset Usage Days</button>
+      <button className="image-button" onClick={increaseFryerUseDays}>
+        <img src={assets.add_icon_green} alt="" />
+      </button>
+
+      <button className="button" onClick={resetFryerUseDays}>
+        Reset Usage Days
+      </button>
     </div>
   );
 };

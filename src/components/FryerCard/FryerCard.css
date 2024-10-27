@@ -1,12 +1,12 @@
 .fryerCard {
-    font-size: 16px;
+  font-size: 18px;
   max-width: 280x;
   height: 300px;
   border: 1px solid hsl(0, 0, 80%);
   margin: auto;
   border-radius: 15px;
   box-shadow: 5px 5px 5px 0px #9d9e96;
-  
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -22,12 +22,25 @@
     display: block;
 } */
 
+.image-button {
+  background: transparent; /* Remove default button styling */
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.1s ease-in-out, opacity 0.1s ease-in-out; /* Smooth transition */
+}
+
+.image-button:active {
+  transform: scale(0.95); /* Slightly scale down */
+  opacity: 0.8; /* Change opacity */
+}
 
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color:#3e68ff;
+  background-color: #3e68ff;
   color: #fff;
   border-radius: 8px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
@@ -36,4 +49,3 @@
   min-height: 44px;
   font-size: 18px;
 }
-
