@@ -1,9 +1,14 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import "./FryerCard.css";
 import { assets } from "../../assets/assets";
 
+
+
+
 const FryerCard = ({ number }) => {
   const [count, setCount] = useState(0);
+  
+
   const increaseFryerUseDays = useCallback(() => {
     setCount((prevCount) => prevCount + 1);
   }, []);
