@@ -38,9 +38,11 @@ export const FryerCard = ({ id, usageDays }) => {
   }, [timerId]);
 
   return (
-    <div className="fryerCard">
+    <div className="fryerCard" style={{
+        backgroundColor: isOn ? '#95ec92': '#fff'
+      }}>
       <h1>{"Fryer " + id}</h1>
-      <fieldset>
+      <fieldset className="radioFieldset">
         <legend>Select the Fryer Status</legend>
 
         <div>
