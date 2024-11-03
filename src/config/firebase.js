@@ -1,14 +1,14 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { apiKey, authDomain, messagingSenderId, appId } from "./apiKeys";
+import { apiKey, authDomain, messagingSenderId, appId, projectId, storageBucket } from "./apiKeys";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: apiKey,
   authDomain: authDomain,
-  projectId: "fryer-counter",
-  storageBucket: "fryer-counter.appspot.com",
+  projectId: projectId,
+  storageBucket:storageBucket,
   messagingSenderId: messagingSenderId,
   appId: appId,
 };
