@@ -6,15 +6,25 @@ import { doc, getDocs, collection, onSnapshot } from "firebase/firestore";
 function App() {
   const [fryers, setFryers] = useState([]);
   const fryerInformationRef = collection(db, "fryerCounter");
+  console.log(fryerInformationRef);
+  
+  
+
   useEffect(() => {
     const getFryerInfo = async () => {
       try {
         const data = await getDocs(fryerInformationRef);
+        console.log("Data from Firestore:", data.docs);
+
         const filteredData = data.docs.map((doc) => {
+          console.log(doc);
+
           return { ...doc.data(), id: doc.id };
         });
 
         setFryers(filteredData);
+        console.log(fryers);
+        
       } catch (error) {
         console.error(error);
       }
@@ -26,6 +36,7 @@ function App() {
 
     // Set up real-time listener with onSnapshot
     const unsubscribe = onSnapshot(fryerCollectionRef, (snapshot) => {
+      console.log("Real-time Firestore data:", snapshot.docs);
       const fryerData = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
@@ -35,15 +46,16 @@ function App() {
 
     // Cleanup the listener on component unmount
     return () => unsubscribe();
-  },[]);
+  }, []);
 
-    // Cleanup the listener on component unmount
-
+  // Cleanup the listener on component unmount
 
   return (
     <div className="app">
       <h1>Fryer Counter</h1>
-      {fryers.map((fryer) => {        
+      {fryers.map((fryer) => {
+        console.log(fryer);
+        
         return (
           <FryerCard
             key={fryer.id}
@@ -53,12 +65,6 @@ function App() {
           />
         );
       })}
-      {/* <FryerCard
-      number={1}/>
-      <FryerCard
-      number={2}/>
-      <FryerCard
-      number={3}/> */}
     </div>
   );
 }
